@@ -23,6 +23,19 @@
     });
   }
 
+  // "Home"/logo links should go to the very top, not stop at the
+  // sticky-header offset that scroll-padding-top applies to anchors.
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll('a[href="#top"], a[href="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      // Move keyboard focus to the top of the page for accessibility
+      var main = document.getElementById("top");
+      if (main) main.setAttribute("tabindex", "-1"), main.focus({ preventScroll: true });
+    });
+  });
+
   // Current year in footer
   var year = document.getElementById("year");
   if (year) {
