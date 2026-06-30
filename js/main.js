@@ -26,14 +26,22 @@
   // "Home"/logo links should go to the very top, not stop at the
   // sticky-header offset that scroll-padding-top applies to anchors.
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function scrollToVeryTop(e) {
+    if (e) e.preventDefault();
+    var supportsSmooth = "scrollBehavior" in document.documentElement.style;
+    if (supportsSmooth && !reduceMotion) {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+      if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }
+  var brand = document.querySelector(".brand");
+  if (brand) brand.addEventListener("click", scrollToVeryTop);
   document.querySelectorAll('a[href="#top"], a[href="#"]').forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-      // Move keyboard focus to the top of the page for accessibility
-      var main = document.getElementById("top");
-      if (main) main.setAttribute("tabindex", "-1"), main.focus({ preventScroll: true });
-    });
+    if (link !== brand) link.addEventListener("click", scrollToVeryTop);
   });
 
   // Current year in footer
