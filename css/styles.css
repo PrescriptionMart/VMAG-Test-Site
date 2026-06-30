@@ -512,6 +512,9 @@ p { margin: 0 0 1em; }
   padding: 30px;
 }
 .form-card__note { font-size: 0.85rem; color: var(--slate); margin-top: 0; }
+.form-card--booking { display: flex; flex-direction: column; }
+.booking__title { color: var(--navy); font-size: 1.35rem; margin-bottom: 6px; }
+.calendly-inline-widget { border-radius: var(--radius-sm); overflow: hidden; margin: 8px 0 4px; }
 .field { margin-bottom: 16px; display: flex; flex-direction: column; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .field label {

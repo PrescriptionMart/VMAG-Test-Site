@@ -19,33 +19,32 @@ anywhere static files are served (GitHub Pages, Netlify, Vercel, or any web host
     └── hero.svg      # Hero background graphic
 ```
 
-## ⚠️ Before going live — replace these placeholders
+## Branch details (live in the site)
 
-The site was built from publicly available VMAG information. A few branch-specific
-details are placeholders and **should be confirmed/replaced** by the branch owner:
+These real branch details are wired into the site:
 
-| Where | Placeholder | Replace with |
-| --- | --- | --- |
-| Header, hero, contact, footer | Phone `(256) 645-8168` | The Bridge City branch's local phone/text number (this is the main VMAG line) |
-| Contact section | `bridgecity@vmag4vets.com` | The branch's real email address |
-| Contact form | `action="https://formspree.io/f/your-form-id"` | A real form endpoint — see **Contact form** below |
-| Services section | "ask us for current rates" | Confirm whether to list exact flat-rate prices |
-| Footer / contact | Facebook URL | Already set to the VMAG Bridge City Facebook page — confirm it's correct |
+| Detail | Value |
+| --- | --- |
+| Phone / text | (409) 313-0530 |
+| WhatsApp | +1 318-455-3862 |
+| Email | dylan@vmag4vets.com |
+| Booking | Calendly — `https://calendly.com/dylan-vmag4vets/30min` |
+| Facebook | VMAG Bridge City page |
 
-> **Disclaimer note:** The footer and About section state that VMAG is a private
-> organization not affiliated with the VA. Keep this language — it's important for
-> compliance and trust.
+The "Book a Free Consultation" buttons open the Calendly link, and the contact section
+embeds the Calendly scheduler inline so visitors can book a time without leaving the page.
 
-## Contact form
+> **Still worth confirming before a wider launch:**
+> - **Pricing** — the Services section says "ask us for current rates" rather than listing
+>   exact flat-rate prices. Add numbers if you want them public.
+> - **Disclaimer** — the footer/About note that VMAG is a private organization not affiliated
+>   with the VA. Keep this language; it's important for compliance and trust.
 
-The form currently points at a placeholder [Formspree](https://formspree.io) endpoint.
-To make it work without any backend:
+## Booking / contact
 
-1. Create a free Formspree account and a new form.
-2. Copy your form ID and replace `your-form-id` in `index.html`:
-   `action="https://formspree.io/f/your-form-id"`
-
-Alternatives: Netlify Forms, Google Forms embed, or a `mailto:` link.
+Booking is handled entirely by **Calendly** (no backend needed). To change the scheduler,
+update the Calendly URL in `index.html` (the `data-url` on the `calendly-inline-widget`
+and the booking button `href`s).
 
 ## Run locally
 
