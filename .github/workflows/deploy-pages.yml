@@ -1,8 +1,9 @@
 name: Deploy site to GitHub Pages
 
 on:
-  push:
-    branches: ["claude/vmag-bridge-city-website-p49qlo"]
+  # Manual-only until GitHub Pages is enabled for this repo with the
+  # "GitHub Actions" source (Settings -> Pages). Re-enable the push trigger
+  # below once that one-time switch is on.
   workflow_dispatch:
 
 permissions:
