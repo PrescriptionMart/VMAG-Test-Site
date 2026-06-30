@@ -143,20 +143,25 @@ p { margin: 0 0 1em; }
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand:hover { text-decoration: none; }
-.brand__logo { display: block; }
-.brand__text { display: flex; flex-direction: column; line-height: 1; }
-.brand__text strong {
+.brand__wordmark {
   font-family: var(--font-head);
-  font-size: 1.5rem;
-  color: var(--navy);
-  letter-spacing: 1px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.95rem;
+  letter-spacing: 0.5px;
+  color: var(--red);
+  line-height: 1;
 }
+.brand__wordmark .brand__v { color: #1f3d8f; }
 .brand__sub {
   font-family: var(--font-head);
   font-size: 0.8rem;
-  letter-spacing: 3px;
-  color: var(--red);
+  letter-spacing: 2.5px;
+  color: var(--navy);
   text-transform: uppercase;
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  line-height: 1;
 }
 
 .primary-nav ul {
@@ -455,6 +460,47 @@ p { margin: 0 0 1em; }
   color: var(--gold);
   font-size: 1.2rem;
 }
+
+/* ---------- Testimonials ---------- */
+.testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.testimonial {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  margin: 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial__stars { color: var(--gold); letter-spacing: 3px; margin-bottom: 12px; font-size: 1.05rem; }
+.testimonial blockquote { margin: 0 0 18px; font-size: 1.05rem; color: var(--ink); line-height: 1.6; }
+.testimonial figcaption {
+  margin-top: auto;
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+.testimonial figcaption span {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+.testimonials__note {
+  text-align: center;
+  margin: 36px auto 0;
+  max-width: 640px;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+@media (max-width: 920px) { .testimonials { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: 14px; }
